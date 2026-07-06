@@ -1,0 +1,1073 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: sans-serif;
+}
+
+:root {
+  /* colors */
+  --primary-color: #1a1d21;
+  --secondary-color: gray;
+  --transactionBtn-color: white;
+  --registerForm-color : #1a1d21 ;
+
+  /* background colors  */
+  --primary-background-color: #f8f9fb;
+  --secondary-background-color: #ffffff;
+  --formFields-background-color: #f8f9fb;
+  --transactionBtn-background-color: black;
+  --cashFlowChartElement-background-color: #f8f9fb;
+  --form-background-color : white ;
+  --registerForm-background-color : #F4F7F6 ;
+
+  /* border colors */
+  --primary-border-color: rgba(128, 128, 128, 0.3);
+}
+
+.darkTheme {
+  /* colors */
+  --primary-color: white;
+  --secondary-color: gray;
+  --transactionBtn-color: white;
+
+  /* background colors  */
+  --primary-background-color: #111827;
+  --secondary-background-color: #1f2937;
+  --formFields-background-color: #111827;
+  --transactionBtn-background-color: #3b82f6;
+  --cashFlowChartElement-background-color: #111827;
+    --form-background-color : #1F2937 ;
+
+  /* border colors */
+  --primary-border-color: rgba(128, 128, 128, 0.3);
+}
+
+body {
+  background-color: black;
+  color: white;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.registerAndLogin {
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--registerForm-background-color);
+  color: var(--registerForm-color);
+
+}
+
+.registerAndLogin form {
+  width: 400px;
+  background-color: #FFFFFF;
+  padding: 30px;
+  border-radius: 15px;
+  border:none ;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+}
+
+.registerAndLogin form h1{
+  font-size: x-large;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.registerAndLogin form h3 {
+  font-size: medium;
+  font-weight: 500;
+
+}
+.registerAndLogin form h2 {
+  font-size: medium;
+  font-weight: 500;
+  align-self: flex-start;
+
+}
+
+.registerAndLogin form input {
+  padding: 8px 12px;
+  border-radius: 4px;
+  width: 100%;
+  font-size: medium;
+  font-weight: 400;
+  border: 1px solid var(--primary-border-color);
+}
+
+.registerAndLogin form button {
+   padding: 8px 12px;
+   border-radius: 5px;
+   color:white;
+   width: 100%;
+   font-size: 14px;
+   font-weight: 500;
+   border:none ;
+}
+
+#registerBtn {
+    background-color: #28A745;
+}
+
+#loginBtn {
+    background-color: #0056B3;
+
+}
+
+.registerAndLogin form p {
+  font-size: 14px;
+  font-weight: 400;
+
+}
+.registerAndLogin form p span {
+  color:rgba(85, 85, 240, 0.993);
+  cursor: pointer;
+
+}
+
+#loginForm {
+      display: none;
+}
+
+.displayNone {
+  display: none;
+}
+
+.addTransactionModal {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.473);
+  color: var(--primary-color);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.addTransactionModal form {
+  /* height: 250px ; */
+  width: 400px;
+  background-color: var(--form-background-color);
+
+  color: var(--primary-color);
+  padding: 20px;
+  border: none;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.addTransactionModal form label {
+  font-size: 14px;
+  font-weight: 500;
+    color: var(--primary-color);
+}
+
+.addTransactionModal form .formHead {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.addTransactionModal form .formHead h1 {
+  font-size: large;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.addTransactionModal form .formHead .closeModal {
+  font-size: large;
+  padding: 3px 6px;
+  border-radius: 5px;
+  font-weight: 500;
+  color: var(--secondary-color);
+  cursor: pointer;
+}
+
+.addTransactionModal form .formHead .closeModal:hover {
+  color: var(--primary-color);
+}
+
+.addTransactionModal form select {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 0.5px solid var(--primary-border-color);
+  background-color: var(--formFields-background-color);
+  color: var(--primary-color);
+}
+
+.addTransactionModal form input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 0.5px solid var(--primary-border-color);
+  border-radius: 6px;
+  background-color: var(--formFields-background-color);
+  color: var(--primary-color);
+}
+
+.addTransactionModal form .amtDateCont {
+  margin-bottom: 10px;
+  width: 100%;
+  display: flex;
+  gap: 15px;
+}
+
+.addTransactionModal form .amtDateCont label {
+  font-size: 14px;
+  font-weight: 500;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.addTransactionModal form button {
+  margin-top: 15px;
+  padding: 8px 15px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--transactionBtn-background-color);
+  color: var(--transactionBtn-color);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+
+
+.leftSection {
+  height: 100%;
+  width:17% ;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+.sidebar {
+  width: 100%;
+  height: 100%;
+  background-color: var(--secondary-background-color);
+  color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* justify-content: space-between; */
+  padding: 20px;
+  border-right: 0.5px solid rgba(128, 128, 128, 0.3);
+}
+
+.sidebar .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  gap: 10px;
+}
+.sidebar .logo .logoSvg svg {
+  height: 30px;
+  width: 30px;
+}
+
+.sidebar .logo .logoText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar .logo .logoText h1 {
+  font-size: 18px;
+}
+
+.sidebar .logo .logoText h3 {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--secondary-color);
+}
+
+.sidebar .featureBtns {
+  margin-top: 35px;
+  width: 90%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+ .featureBtn{
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  padding-right: 20px;
+  font-size: medium;
+  font-weight: 500;
+  text-align: start;
+  background-color: transparent;
+  color: var(--secondary-color); 
+}
+
+
+.sidebar .featureBtns button:hover,
+.sidebar .featureBtns button:hover span svg {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.sidebarBtnsSvg {
+  height: 16px;
+  width: 16px;
+  color: gray;
+}
+
+.active {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+
+.addTransactionBtn {
+  /* justify-self: flex-end; */
+  margin-bottom: 0px;
+  margin-top: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 90%;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: small;
+  font-weight: 600;
+  color: white;
+  background-color: var(--transactionBtn-background-color);
+  cursor: pointer;
+}
+
+.rightSection {
+  height: 100%;
+  width: 83%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+nav {
+  width: 100%;
+  height: 10%;
+  background-color: var(--secondary-background-color);
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 35px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+}
+
+nav .leftNav {  
+
+}
+
+nav .leftNav .menuBtn{
+
+  padding: 3px;
+  border-radius: 2px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+nav .leftNav .menuBtn svg {
+  height: 18px;
+  width: 18px;
+}
+
+.hamburgerActive {
+  display: flex;
+}
+
+
+nav .rightNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav .verticleLine {
+  height: 20px;
+  width: 0.5px;
+  background-color: var(--secondary-color);
+}
+
+nav h2 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+nav button {
+  font-size: 16px;
+  font-weight: 400;
+  padding: 6px 15px;
+  background-color: var(--secondary-background-color);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-border-color);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+nav button span svg {
+  height: 14px;
+  width: 14px;
+}
+
+.mainSection {
+  height: 90%;
+  width: 100%;
+  background-color: var(--primary-background-color);
+}
+
+.mainSection .dashboard {
+  padding: 30px;
+  color: var(--primary-color);
+  background-color: var(--primary-background-color);
+}
+
+.mainSection .dashboard .head {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mainSection .dashboard .head h1 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.mainSection .dashboard .head h3 {
+  font-size: 14px;
+  font-weight: 400;
+  color: gray;
+}
+
+.dashboard {
+  display: flex;
+  /* display: none; */
+  flex-direction: column;
+}
+
+.dashboard .statistics {
+  margin-top: 20px;
+  width: 100%;
+  background-color: var(--primary-background-color);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 30px;
+}
+
+.dashboard .statistics .statisticsCards {
+  background-color: var(--secondary-background-color);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  border-radius: 15px;
+  gap: 10px;
+  border: 1px solid rgba(128, 128, 128, 0.3);
+}
+
+.dashboard .statistics .statisticsCards span {
+  padding: 8px;
+  width: fit-content;
+  border-radius: 8px;
+}
+.dashboard .statistics .statisticsCards span svg {
+  height: 18px;
+  width: 18px;
+}
+
+.currentBalance span {
+  background-color: #dbeafe;
+  color: blue;
+}
+.currentBalance h1 {
+  color: var();
+}
+
+.totalIncome span {
+  background-color: #dcfce7;
+  color: #166534;
+}
+.totalIncome h1 {
+  color: #166534;
+}
+
+.totalExpense span {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.totalExpense h1 {
+  color: #991b1b;
+}
+
+.totalTransactions span {
+  background-color: #dbeafe;
+  color: blue;
+}
+
+.dashboard .statistics .statisticsCards h3 {
+  font-size: 14px;
+  font-weight: 500;
+  color: gray;
+}
+.dashboard .statistics .statisticsCards h1 {
+  font-size: x-large;
+  font-weight: 600;
+}
+
+.dashboard .dashboardBody {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  gap: 20px;
+}
+.dashboard .dashboardBody .leftDashboard {
+  width: 65%;
+}
+
+.dashboard .dashboardBody .leftDashboard .cashflowChart {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--secondary-background-color);
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.dashboard .dashboardBody .leftDashboard .cashflowChart h1 {
+  font-size: x-large;
+  font-weight: 600;
+    padding-bottom: 5px;
+}
+
+#cashFlowChartElement {
+  background-color: var(--cashFlowChartElement-background-color);
+}
+
+.dashboard .dashboardBody .leftDashboard .allTransactions {
+  margin-top: 20px;
+  width: 100%;
+  background-color: var(--secondary-background-color);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(128, 128, 128, 0.3);
+}
+
+.dashboard .dashboardBody .leftDashboard .allTransactions h1 {
+  font-size: x-large;
+  font-weight: 600;
+  padding-bottom: 5px;
+}
+
+.dashboard .dashboardBody .leftDashboard .allTransactions .functionalityCont {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+.dashboard
+  .dashboardBody
+  .leftDashboard
+  .allTransactions
+  .functionalityCont
+  .searchCont {
+  width: 35%;
+}
+
+.dashboard
+  .dashboardBody
+  .leftDashboard
+  .allTransactions
+  .functionalityCont
+  .searchCont
+  label {
+  background-color: var(--formFields-background-color);
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 12px;
+  gap: 10px;
+}
+
+.dashboard
+  .dashboardBody
+  .leftDashboard
+  .allTransactions
+  .functionalityCont
+  .searchCont
+  label
+  span
+  svg {
+  height: 15px;
+  width: 15px;
+  color: var(--primary-color);
+}
+
+.dashboard
+  .dashboardBody
+  .leftDashboard
+  .allTransactions
+  .functionalityCont
+  .searchCont
+  input {
+  width: 100%;
+  /* padding : 6px 12px; */
+  padding-left: 2px;
+  border-radius: 12px;
+  border: none;
+  background-color: var(--formFields-background-color);
+  color: var(--primary-color) ;
+
+  outline: none;
+}
+.dashboard
+  .dashboardBody
+  .leftDashboard
+  .allTransactions
+  .functionalityCont
+  .sortByCont {
+  width: 65%;
+}
+
+.dashboard
+  .dashboardBody
+  .leftDashboard
+  .allTransactions
+  .functionalityCont
+  .sortByCont
+  select {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  outline: none;
+  color: var(--primary-color);
+  background-color: var(--formFields-background-color);
+}
+
+.dashboard
+  .dashboardBody
+  .leftDashboard
+  .allTransactions
+  .allTransactionsTableCont {
+  width: 100%;
+}
+
+.dashboard
+  .dashboardBody
+  .leftDashboard
+  .allTransactions
+  .allTransactionsTableCont
+  table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+}
+
+thead th {
+  padding: 8px 10px;
+
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  overflow-x: auto;
+  color: var(--secondary-color);
+}
+
+tr {
+  border-bottom: 0.5px solid var(--primary-border-color);
+}
+
+tbody td {
+  padding: 15px 10px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  overflow-x: auto;
+  word-break: break-all;
+}
+
+.description {
+  font-weight: 600;
+}
+
+.category {
+  font-size: 12px;
+  background-color: var(--formFields-background-color);
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-weight: 400;
+}
+
+.amount {
+  color: #166534;
+  font-size: medium;
+  font-weight: 600;
+}
+
+.actions button {
+  padding: 1px 2px;
+  border-radius: 4px;
+  font-size: 18px;
+  border: none;
+  background-color: transparent;
+    cursor: pointer;
+}
+
+.actions #editTransactionBtn {
+  color: #1e40af;
+
+}
+
+.actions #editTransactionBtn:hover {
+  background-color: #dbeafe;
+}
+
+.actions #deleteTransactionBtn {
+  color: #991b1b;
+}
+
+.actions #deleteTransactionBtn:hover {
+  background-color: #fee2e2;
+}
+
+.dashboard .dashboardBody .rightDashboard {
+  width: 35%;
+  height: fit-content;
+  background-color: var(--secondary-background-color);
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.dashboard .dashboardBody .rightDashboard h1 {
+  font-size: x-large;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.dashboard .dashboardBody .rightDashboard .preferences {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard .dashboardBody .rightDashboard .preferences h2 {
+  font-size: medium;
+  font-weight: 600;
+}
+.dashboard .dashboardBody .rightDashboard .preferences button {
+  padding: 4px 8px;
+  font-size: medium;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: var(--primary-color);
+}
+
+.dashboard .dashboardBody .rightDashboard .preferences button svg {
+  height: 40px;
+  width: 40px;
+
+}
+
+.dashboard .dashboardBody .rightDashboard .separation {
+  height: 0.5px;
+  width: 100%;
+  background-color: rgba(128, 128, 128, 0.3);
+  margin: 5px 0;
+}
+
+#resetAllDataBtn {
+  background-color: #fff5f5;
+  padding: 7px 0;
+  border: 1px solid #ffcccc;
+  width: 100%;
+  color: darkred;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: small;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+}
+#resetAllDataBtn span svg {
+  color: darkred;
+  height: 15px;
+  width: 15px;
+    margin-right: 5px;
+}
+
+.rightSection .mainSection .setting {
+  /* display: flex; */
+  display: none;
+  flex-direction: column;
+  background-color: var(--primary-background-color);
+  color: var(--primary-color);
+  padding: 30px;
+  width: 100%;
+}
+
+.setting .head {
+  display: flex;
+  flex-direction: column;
+}
+
+.setting .head h1 {
+  font-size: 28px;
+  font-weight: 600;
+}
+.setting .head h3 {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--secondary-color);
+}
+
+.setting .profileDetailsCont {
+  margin-top: 20px;
+  width: 67%;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  background-color: var(--secondary-background-color);
+}
+
+.setting .profileDetailsCont h1 {
+  font-size: x-large;
+  font-weight: 600;
+}
+
+.setting .profileDetailsCont .labelCont {
+  display: flex;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+.setting .profileDetailsCont .labelCont label {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.setting .profileDetailsCont .labelCont label input {
+  padding: 8px 15px;
+  font-size: 14px;
+  font-weight: 400;
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  border-radius: 6px;
+  color: var(--primary-color);
+  background-color: var(--formFields-background-color);
+}
+
+.setting .profileDetailsCont .labelCont label select {
+  padding: 8px 15px;
+  font-size: 14px;
+  font-weight: 400;
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  border-radius: 6px;
+  color: var(--primary-color);
+  background-color: var(--formFields-background-color);
+}
+
+.setting .profileDetailsCont .saveChangesBtn {
+  margin-top: 40px;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 20px;
+  background-color: var(--transactionBtn-background-color);
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+
+
+@media screen and (max-width : 576px) {
+  .leftSection {
+    min-width: 100% ;
+    background-color: rgba(0, 0, 0, 0.34);
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+  }
+
+  .sidebar {
+    /* display: none; */
+    width: max-content;
+    position: relative ;
+    top: 0;
+    left: 0;
+    z-index: 11;
+   
+  }
+
+
+
+  .rightSection {
+    width: 100%;
+  }
+
+  nav .leftNav .menuBtn {
+    display: flex;
+  }
+
+  .dashboard .statistics{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr ;
+  }
+.dashboard .dashboardBody {
+    flex-direction: column;
+  }
+  .dashboard .dashboardBody .leftDashboard {
+    width: 100%;
+  }
+  .dashboard .dashboardBody .rightDashboard {
+    width: 100%;
+  }
+
+  .setting .profileDetailsCont { 
+    width: 100%;
+  }
+
+}
+
+@media (min-width: 576px) and (max-width : 767px ) { 
+ .leftSection {
+    min-width: 100% ;
+    background-color: rgba(0, 0, 0, 0.34);
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+  }
+
+  .sidebar {
+    /* display: none; */
+    width: max-content;
+    position: relative ;
+    top: 0;
+    left: 0;
+    z-index: 11;
+   
+  }
+
+
+
+  .rightSection {
+    width: 100%;
+  }
+
+  nav .leftNav .menuBtn {
+    display: flex;
+  }
+
+  .dashboard .statistics{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr ;
+  }
+.dashboard .dashboardBody {
+    flex-direction: column;
+  }
+  .dashboard .dashboardBody .leftDashboard {
+    width: 100%;
+  }
+  .dashboard .dashboardBody .rightDashboard {
+    width: 100%;
+  }
+}
+
+
+@media (min-width: 768px) and ( max-width : 991px) {
+.leftSection {
+    min-width: max-content ;
+  }
+
+  .sidebar {
+    /* display: none; */
+    width: max-content;
+    position: relative ;
+    top: 0;
+    left: 0;
+    z-index: 11;
+   
+  }
+
+  .rightSection {
+    width: 100%;
+  }
+
+  nav .leftNav .menuBtn {
+    display: none;
+  }
+
+
+}
+
+@media (min-width: 992px) {
+.leftSection {
+  display: flex;
+    min-width: max-content ;
+  }
+
+
+  .rightSection {
+    min-width: 70% ;
+  }
+
+  nav .leftNav .menuBtn {
+    display: none;
+  }
+
+
+}
