@@ -1,0 +1,8 @@
+
+.toggle {
+    display: flex;
+}
+
+.hidden {
+    display: hidden;
+}
